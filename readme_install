@@ -1,4 +1,132 @@
 
+ubuntu@ip-172-31-41-15:~/aptos-core/ecosystem/typescript/sdk/examples/typescript$ vi package.json
+
+# i needed to add vesting to the package.json file.....
+
+{
+  "name": "ts-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bcs_transaction": "ts-node bcs_transaction.ts",
+    "multisig_account": "ts-node multisig_account.ts",
+    "multisig_managed_coin": "ts-node multisig_managed_coin.ts",
+    "multisig_transaction": "ts-node multisig_transaction.ts",
+    "simple_nft": "ts-node simple_nft.ts",
+    "simple_aptos_token": "ts-node simple_aptos_token.ts",
+    "transfer_coin": "ts-node transfer_coin.ts",
+    "test": "run-s bcs_transaction multisig_transaction simple_nft transfer_coin",
+    "your_coin": "ts-node your_coin.ts",
+    "your_fungible_asset": "ts-node your_fungible_asset.ts",
+    "call_aptos_cli": "ts-node call_aptos_cli.ts",
+    "ambassador": "ts-node ambassador",
+    "knight": "ts-node knight",
+    "gas_fee_payer": "ts-node gas_fee_payer",
+    "vesting":  "ts-node vesting.ts"
+
+  },
+
+2. ) next, I had to make the following changes to vdsting.ts
+
+
+//import dotenv from "dotenv";
+//dotenv.config();
+
+//import { AptosClient, AptosAccount, CoinClient, FaucetClient } from "aptos";
+//import { NODE_URL, FAUCET_URL } from "./common";
+
+import { AptosClient, AptosAccount, FaucetClient, } from "aptos";
+
+//URLS
+const NODE_URL = process.env.APTOS_NODE_URL || "https://fullnode.devnet.aptoslabs.com";
+const FAUCET_URL = process.env.APTOS_FAUCET_URL || "https://faucet.devnet.aptoslabs.com";
+
+//clients
+const client = new AptosClient(NODE_URL);
+const faucetClient = new FaucetClient(NODE_URL, FAUCET_URL);
+////Accounts
+// sender Account
+const account1 = new AptosAccount();
+// receiver Account
+const account2 = new AptosAccount();
+//token vesting program id
+const pid="a286b9e594f7f5fae0aab9f764abc58ab54c9a6575ee63fd43cf9c0bd20ab8a1";
+//Token Vesting Smart Contract
+// describe("Token Vesting", () => {
+ // it ("Creating Vesting", async () => {
+console.log("wfti    s");
+
+(async () => {
+console.log("wft");
+  await faucetClient.fundAccount(account1.address(), 1000000000);//Airdropping
+    //Time and Amounts
+    const now = Math.floor(Date.now() / 1000)
+    //Any discrete amount and corresponding time
+    //can be provided to get variety of payment schedules
+    const release_amount =[10000, 50000, 10000, 30000];
+    const release_time_increment =[ 3, 20, 30];
+    var release_time:BigInt[]=[BigInt(now)]
+    release_time_increment.forEach((item) => {
+      let val=BigInt(now+item);
+      release_time.push(val);
+    });
+    const create_vesting_payloads = {
+      type: "entry_function_payload",
+      function: pid+"::vesting::create_vesting",
+      type_arguments: ["0x1::aptos_coin::AptosCoin"],
+      arguments: [account2.address(),release_amount,release_time,100000,"xyz"],
+    };
+    let txnRequest = await client.generateTransaction(account1.address(), create_vesting_payloads);
+    let bcsTxn = AptosClient.generateBCSTransaction(account1, txnRequest);
+    let x = await client.submitSignedBCSTransaction(bcsTxn);
+    console.log(x);
+  });
+  //Function
+//  it ("Get Funds", async () => {
+
+
+(async () => {
+
+
+  await faucetClient.fundAccount(account2.address(), 1000000000);//Airdropping
+    //the receiver gets allocated fund as required
+
+console.log("what happened");
+
+
+  const create_getfunds_payloads = {
+      type: "entry_function_payload",
+      function: pid+"::vesting::release_fund",
+      type_arguments: ["0x1::aptos_coin::AptosCoin"],
+      arguments: [account1.address(),"xyz"],
+    };
+    let txnRequest = await client.generateTransaction(account2.address(), create_getfunds_payloads);
+    let bcsTxn = AptosClient.generateBCSTransaction(account2, txnRequest);
+    let x=await client.submitSignedBCSTransaction(bcsTxn);
+    console.log(x);
+  });
+
+
+//});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ubuntu@ip-172-31-41-15:~/aptos-token-vesting$ /home/ubuntu/.local/bin/aptos init
 Configuring for profile default
 Choose network from [devnet, testnet, mainnet, local, custom | defaults to devnet]
