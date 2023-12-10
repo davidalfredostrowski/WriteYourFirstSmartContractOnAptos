@@ -59,6 +59,37 @@ yes
 
 
 
+ubuntu@ip-172-31-37-219:~/aptos-core/ecosystem/typescript/sdk/examples/typescript$ pnpm run vesting
+
+> ts-test@1.0.0 vesting /home/ubuntu/aptos-core/ecosystem/typescript/sdk/examples/typescript
+> ts-node vesting.ts
+
+wfti    s
+wft
+what happened
+{
+  hash: '0x3d84d055db46fe50f6619f4581c5a32bcb966f35679bde42cfeb60d18d04867d',
+  sender: '0xb3b9aba88135a210ef20038d399b30ab8dbf50fdec4631f5f986f620465555e6',
+  sequence_number: '0',
+  max_gas_amount: '200000',
+  gas_unit_price: '100',
+  expiration_timestamp_secs: '1702238660',
+  payload: {
+    function: '0x190a200c1aee3d56e5651dcdf6421f371de0b1c1e2846b53629921a2601f2d1e::vesting::release_fund',
+    type_arguments: [ '0x1::aptos_coin::AptosCoin' ],
+    arguments: [
+      '0xbb54a075a0362928febb962e384b4e9d188cd725a12dd0a4ab2c09d91a6de42d',
+      '0x78797a'
+    ],
+    type: 'entry_function_payload'
+  },
+  signature: {
+    public_key: '0xb3c7e4574474854f0d0ff5b623d2dfee0ffa758e30a057aff329c8c2f1d88b4e',
+    signature: '0x6cfc0292aefeb4786eb964ce60f7c43cf8a1ddd95c48d574a11d50d5c9f1046c9e2b77437d9cda44de4a52c3b2bac1cdb0dc9134d581de8bc3f6ddfaf619e807',
+    type: 'ed25519_signature'
+  }
+}
+
 
 
 
