@@ -19,6 +19,50 @@ curl -fsSL "https://aptos.dev/scripts/install_cli.py" | python3
 
 
 
+1.) reset the environment
+2.) set Toml.move
+compile 
+ubuntu@ip-172-31-37-219:~/aptos-core/aptos-move/move-examples/hello_blockchain$ /home/ubuntu/.local/bin/aptos move compile --named-addresses token_vesting="0x190a200c1aee3d56e5651dcdf6421f371de0b1c1e2846b53629921a2601f2d1e"
+Compiling, may take a little while to download git dependencies...
+INCLUDING DEPENDENCY AptosFramework
+INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING Examples
+{
+  "Result": [
+    "190a200c1aee3d56e5651dcdf6421f371de0b1c1e2846b53629921a2601f2d1e::vesting"
+  ]
+}
+
+/home/ubuntu/.local/bin/aptos move publish --named-addresses token_vesting="0x190a200c1aee3d56e5651dcdf6421f371de0b1c1e2846b53629921a2601f2d1e"
+Compiling, may take a little while to download git dependencies...
+INCLUDING DEPENDENCY AptosFramework
+INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING Examples
+package size 3827 bytes
+Do you want to submit a transaction for a range of [271500 - 407200] Octas at a gas unit price of 100 Octas? [yes/no] >
+yes
+{
+  "Result": {
+    "transaction_hash": "0x69dc19cf86919b7a78957951781c499ec715a2fd6374c6fd97afd31c4a889d0c",
+    "gas_used": 2715,
+    "gas_unit_price": 100,
+    "sender": "190a200c1aee3d56e5651dcdf6421f371de0b1c1e2846b53629921a2601f2d1e",
+    "sequence_number": 0,
+    "success": true,
+    "timestamp_us": 1702238314471921,
+    "version": 4211617,
+    "vm_status": "Executed successfully"
+  }
+}
+
+
+
+
+
+
+
 
 
 
