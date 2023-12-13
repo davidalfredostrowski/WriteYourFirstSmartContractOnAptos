@@ -166,6 +166,11 @@ ubuntu@ip-172-31-41-15:~/aptos-core/ecosystem/typescript/sdk/examples/typescript
 
 
 
+/aptos-core/ecosystem/typescript/sdk/examples/typescript$ vi vesting.ts
+
+
+ubuntu@ip-172-31-37-219:~/aptos-core/ecosystem/typescript/sdk/examples/typescript$ pnpm run vesting
+
 ######################################
 ######################################
 ######################################
