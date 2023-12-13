@@ -168,8 +168,98 @@ ubuntu@ip-172-31-41-15:~/aptos-core/ecosystem/typescript/sdk/examples/typescript
 
 /aptos-core/ecosystem/typescript/sdk/examples/typescript$ vi vesting.ts
 
-
+pnpm install
 ubuntu@ip-172-31-37-219:~/aptos-core/ecosystem/typescript/sdk/examples/typescript$ pnpm run vesting
+
+
+ubuntu@ip-172-31-38-64:~/aptos-core/ecosystem/typescript/sdk/examples/typescript$ pnpm run vesting
+
+> ts-test@1.0.0 vesting /home/ubuntu/aptos-core/ecosystem/typescript/sdk/examples/typescript
+> ts-node vesting.ts
+
+wfti    s
+wft
+what happened
+{
+  hash: '0x860a34e5f1d769b33615e5760c8425beb2bce3add608b1b41b5b330ae7605e89',
+  sender: '0xdfbdefb30ee4f48829768be16a90d04e92c46bf594429ec21b760204b3fc10cd',
+  sequence_number: '0',
+  max_gas_amount: '200000',
+  gas_unit_price: '100',
+  expiration_timestamp_secs: '1702490292',
+  payload: {
+    function: '0x68501796e038c63b063a7272b4f0998bab9697082c587ca4c84848cdb8fc8134::vesting::create_vesting',
+    type_arguments: [ '0x1::aptos_coin::AptosCoin' ],
+    arguments: [
+      '0x921eb30913b8130da88f22d3d464842c95b31ed4888628ed5dd0571d621744a5',
+      [Array],
+      [Array],
+      '100000',
+      '0x78797a'
+    ],
+    type: 'entry_function_payload'
+  },
+  signature: {
+    public_key: '0xf6f325da8cf11ba5616a196eb769bc7e1b7a709ddebfc13d9c78ea6e2e4600ed',
+    signature: '0x6ca5568fb80d8624ea0689d60cf3318d80c703042a6114cb25f64529ee8eebb929983bede698d168cd961c97b073f76b117204e32622b413d634b04c8cf7320c',
+    type: 'ed25519_signature'
+  }
+}
+{
+  hash: '0xd9f056843e2e45251957ee7033c4361ed6b2dc07623a21960cb529d1016d449c',
+  sender: '0x921eb30913b8130da88f22d3d464842c95b31ed4888628ed5dd0571d621744a5',
+  sequence_number: '0',
+  max_gas_amount: '200000',
+  gas_unit_price: '100',
+  expiration_timestamp_secs: '1702490292',
+  payload: {
+    function: '0x68501796e038c63b063a7272b4f0998bab9697082c587ca4c84848cdb8fc8134::vesting::release_fund',
+    type_arguments: [ '0x1::aptos_coin::AptosCoin' ],
+    arguments: [
+      '0xdfbdefb30ee4f48829768be16a90d04e92c46bf594429ec21b760204b3fc10cd',
+      '0x78797a'
+    ],
+    type: 'entry_function_payload'
+  },
+  signature: {
+    public_key: '0xa3a212362b5d7752f571758934379057b0c7cf232740c152672acf96d9594d74',
+    signature: '0x1f424e31a7618565e794d70d2766773035335e14600dde37c9ee1b01a9ec50731587f9c86d0a41a83709600eb5e1bbff750dbe4ee6628681e0010ac358899b07',
+    type: 'ed25519_signature'
+  }
+}
+
+
+
+
+
+
+
+
+
+https://explorer.aptoslabs.com/account/0cd38741e80d794772fc5890e39f2b9d2d3f28246489960b790d7b4d270ab6b5?network=devnet
+
+
+https://aptos.dev/tutorials/first-move-module
+
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
+
+https://mokshya.io/
+
+https://medium.com/@moncayolabs/aptos-move-struct-and-its-abilities-explained-has-drop-copy-key-store-0d7a7070f20d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ######################################
 ######################################
@@ -214,6 +304,7 @@ yes
 
 
 
+ubuntu@ip-172-31-37-219:~/aptos-core/ecosystem/typescript/sdk/examples/typescript$ pnpm install
 ubuntu@ip-172-31-37-219:~/aptos-core/ecosystem/typescript/sdk/examples/typescript$ pnpm run vesting
 
 > ts-test@1.0.0 vesting /home/ubuntu/aptos-core/ecosystem/typescript/sdk/examples/typescript
