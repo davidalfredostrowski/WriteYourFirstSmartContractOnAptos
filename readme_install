@@ -51,6 +51,13 @@ token_vesting = "_"
 AptosFramework = { local = "../../framework/aptos-framework" }
 
 
+cd sources
+rm *.move
+vi token_vesting.move
+
+
+
+
 
 
 
